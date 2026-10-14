@@ -1,0 +1,26 @@
+[project]
+name = "icl-herd"
+version = "0.1.0"
+description = "Kernel herding for training-data selection, with an in-context-learning proxy for cheap hyperparameter search."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+    "torch>=2.1",
+    "numpy>=1.24",
+    "tqdm>=4.65",
+]
+
+[project.optional-dependencies]
+icl-proxy = ["transformers>=4.45"]
+dev = ["pytest>=7.0"]
+
+[project.scripts]
+icl-herd = "icl_herd.cli:main"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["icl_herd*"]
